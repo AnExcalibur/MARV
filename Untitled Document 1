@@ -1,0 +1,101 @@
+start
+stop x,y
+
+adjust y unless facing=north
+travel y unless ygoal=ypos
+adjust x unless dir is correct
+travel x unless xgoal=xpos
+
+
+adjust y :
+	if ypos<ygoal && facing!=:north
+		rotate right
+		adjust y()
+	else if ypos>ygoal && facing!=:south
+		rotate right
+		adjust y()
+
+travel y:
+	if ypos<ygoal :
+		yhandleobs_ptive()
+		travel y()
+	else if ypos>ygoal :
+		yhandleobs_ntive()
+		travel y()
+		
+adjust x:
+	if xpos<xgoal && facing!=:east
+		rotate right
+		adjust x()
+	else if xpos>xgoal && facing!=:west
+		rotate right
+		adjust x()
+		
+travel x:
+	if xpos<xgoal :
+		xhandleobs_ptive()
+		travel x()
+	else if ypos>ygoal :
+		xhandleobs_ntive()
+		travel x()
+		
+		
+yhandleobs_ptive(ypos,xpos,facing,isobs):
+	if isobs and facing==north:
+		rotate right
+		handleobs_ptive()
+	else if isobs and facing==east:
+		rotate right
+		rotate right
+		handleobs_ptive()
+	else if isobs and facing==west:
+		rotate left
+		handleobs_ptive()
+	move
+	adjust y()
+	
+yhandleobs_ntive(ypos,xpos,facing,isobs):
+	if isobs and facing==south:
+		rotate right
+		handleobs_ntive()
+	else if isobs and facing==west:
+		rotate right
+		rotate right
+		handleobs_ntive()
+	else if isobs and facing==east:
+		rotate left
+		handleobs_ntive()
+	move
+	adjust y()
+	
+	
+xhandleobs_ptive(ypos,xpos,facing,isobs):
+	if isobs and facing==east :
+		rotate right
+		handleobs_ptive()
+	else if isobs and facing==south :
+		rotate right
+		rotate right
+		handleobs_ptive()
+	else if isobs and facing==north :
+		rotate left
+		handleobs_ptive()
+	move
+	adjust x()
+
+xhandleobs_ntive(ypos,xpos,facing,isobs):
+	if isobs and facing==west :
+		rotate right
+		handleobs_ntive()
+	else if isobs and facing==north :
+		rotate right
+		rotate right
+		handleobs_ntive()
+	else if isobs and facing==south :
+		rotate left
+		handleobs_ntive()
+	move
+	adjust x()
+
+		
+	
