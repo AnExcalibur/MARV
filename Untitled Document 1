@@ -1,11 +1,8 @@
-start
-stop x,y
-
-adjust y unless facing=north
-travel y unless ygoal=ypos
-adjust x unless dir is correct
-travel x unless xgoal=xpos
-
+stop x,y:
+	adjust y()
+	travel y()
+	adjust x()
+	travel x()
 
 adjust y :
 	if ypos<ygoal && facing!=:north
@@ -43,28 +40,28 @@ travel x:
 yhandleobs_ptive(ypos,xpos,facing,isobs):
 	if isobs and facing==north:
 		rotate right
-		handleobs_ptive()
+		yhandleobs_ptive()
 	else if isobs and facing==east:
 		rotate right
 		rotate right
-		handleobs_ptive()
+		yhandleobs_ptive()
 	else if isobs and facing==west:
 		rotate left
-		handleobs_ptive()
+		yhandleobs_ptive()
 	move
 	adjust y()
 	
 yhandleobs_ntive(ypos,xpos,facing,isobs):
 	if isobs and facing==south:
 		rotate right
-		handleobs_ntive()
+		yhandleobs_ntive()
 	else if isobs and facing==west:
 		rotate right
 		rotate right
-		handleobs_ntive()
+		yhandleobs_ntive()
 	else if isobs and facing==east:
 		rotate left
-		handleobs_ntive()
+		yhandleobs_ntive()
 	move
 	adjust y()
 	
@@ -72,28 +69,28 @@ yhandleobs_ntive(ypos,xpos,facing,isobs):
 xhandleobs_ptive(ypos,xpos,facing,isobs):
 	if isobs and facing==east :
 		rotate right
-		handleobs_ptive()
+		xhandleobs_ptive()
 	else if isobs and facing==south :
 		rotate right
 		rotate right
-		handleobs_ptive()
+		xhandleobs_ptive()
 	else if isobs and facing==north :
 		rotate left
-		handleobs_ptive()
+		xhandleobs_ptive()
 	move
 	adjust x()
 
 xhandleobs_ntive(ypos,xpos,facing,isobs):
 	if isobs and facing==west :
 		rotate right
-		handleobs_ntive()
+		xhandleobs_ntive()
 	else if isobs and facing==north :
 		rotate right
 		rotate right
-		handleobs_ntive()
+		xhandleobs_ntive()
 	else if isobs and facing==south :
 		rotate left
-		handleobs_ntive()
+		xhandleobs_ntive()
 	move
 	adjust x()
 
