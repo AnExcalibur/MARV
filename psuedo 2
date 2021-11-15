@@ -36,33 +36,77 @@ travel x:
 	else if ypos>ygoal :
 		xhandleobs_ntive()
 		travel x()
-		
+
+
+randompos():
+	num = enum.random(0,1,2)
+	if num == 0:
+		rotate left
+	elif num == 1:
+		rotate right
+	
 		
 yhandleobs_ptive(ypos,xpos,facing,isobs):
 	if isobs and facing==north:
 		rotate right
-		yhandleobs_ptive()
+		if isobs:
+			rotate right
+			yhandleobs_ptive()
+		else:
+			move
+			randompos()
+			yhandleobs_ptive()
 	else if isobs and facing==east:
 		rotate right
 		rotate right
-		yhandleobs_ptive()
+		if isobs:
+			rotate right
+			yhandleobs_ptive()
+		else:
+			move
+			randompos()
+			yhandleobs_ptive()
 	else if isobs and facing==west:
 		rotate left
-		yhandleobs_ptive()
+		if isobs:
+			rotate right
+			yhandleobs_ptive()
+		else:
+			move
+			randompos()
+			yhandleobs_ptive()
 	move
 	adjust y()
 	
 yhandleobs_ntive(ypos,xpos,facing,isobs):
 	if isobs and facing==south:
 		rotate right
-		yhandleobs_ntive()
+		if isobs:
+			rotate right
+			yhandleobs_ptive()
+		else:
+			move
+			randompos()
+			yhandleobs_ptive()
 	else if isobs and facing==west:
 		rotate right
 		rotate right
-		yhandleobs_ntive()
+		if isobs:
+			rotate right
+			yhandleobs_ptive()
+		else:
+			move
+			randompos()
+			yhandleobs_ptive()
 	else if isobs and facing==east:
 		rotate left
-		yhandleobs_ntive()
+		if isobs:
+			rotate right
+			yhandleobs_ptive()
+		else:
+			move
+			randompos()
+			yhandleobs_ptive()
 	move
 	adjust y()
 	
@@ -70,28 +114,64 @@ yhandleobs_ntive(ypos,xpos,facing,isobs):
 xhandleobs_ptive(ypos,xpos,facing,isobs):
 	if isobs and facing==east :
 		rotate right
-		xhandleobs_ptive()
+		if isobs:
+			rotate right
+			xhandleobs_ptive()
+		else:
+			move
+			randompos()
+			xhandleobs_ptive()
 	else if isobs and facing==south :
 		rotate right
 		rotate right
-		xhandleobs_ptive()
+		if isobs:
+			rotate right
+			xhandleobs_ptive()
+		else:
+			move
+			randompos()
+			xhandleobs_ptive()
 	else if isobs and facing==north :
 		rotate left
-		xhandleobs_ptive()
+		if isobs:
+			rotate right
+			xhandleobs_ptive()
+		else:
+			move
+			randompos()
+			xhandleobs_ptive()
 	move
 	adjust x()
 
 xhandleobs_ntive(ypos,xpos,facing,isobs):
 	if isobs and facing==west :
 		rotate right
-		xhandleobs_ntive()
+		if isobs:
+			rotate right
+			xhandleobs_ptive()
+		else:
+			move
+			randompos()
+			xhandleobs_ptive()
 	else if isobs and facing==north :
 		rotate right
 		rotate right
-		xhandleobs_ntive()
+		if isobs:
+			rotate right
+			xhandleobs_ptive()
+		else:
+			move
+			randompos()
+			xhandleobs_ptive()
 	else if isobs and facing==south :
 		rotate left
-		xhandleobs_ntive()
+		if isobs:
+			rotate right
+			xhandleobs_ptive()
+		else:
+			move
+			randompos()
+			xhandleobs_ptive()
 	move
 	adjust x()
 
