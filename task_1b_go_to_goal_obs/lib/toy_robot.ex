@@ -306,7 +306,7 @@ defmodule ToyRobot do
         {robot,state}=xhandleobs_ptive(robot,goal_x,goal_y,state)
         xtravel(robot,goal_x,goal_y,state)
        x>goal_x->
-        {robot,state}=xhandleobs_ptive(robot,goal_x,goal_y,state)
+        {robot,state}=xhandleobs_ntive(robot,goal_x,goal_y,state)
         xtravel(robot,goal_x,goal_y,state)
        
          
